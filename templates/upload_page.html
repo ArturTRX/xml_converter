@@ -1,14 +1,13 @@
 
 <body>
     <p>
-        Modify this page to include a form where users can submit an XML file.
-        When they click on the submit button, the XML file should be converted into JSON and
-        returned to the user.
+        Are ye ready to submit yer file and have it magically transformed into shiny JSON treasure?
+        Just click that submit button and let the conversion begin!
     </p>
-    <form action="{% url 'convert' %}" method="post" enctype="multipart/form-data">
+    <form action="{% url 'converter-convert' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="xml_file">Select XML file:</label>
-        <input type="file" id="xml_file" name="xml_file">
+        <input type="file" id="xml_file" name="file">
         <br>
         <input type="submit" value="Convert">
     </form>
