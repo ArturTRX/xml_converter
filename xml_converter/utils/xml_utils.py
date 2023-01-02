@@ -1,7 +1,8 @@
 """
 Utility functions for XML manipulation in Django.
 
-These functions provide tools for parsing and modifying XML files in Django views, forms, and models.
+These functions provide tools for parsing and modifying XML files in Django
+    views, forms, and models.
 """
 
 import xml.etree.ElementTree as ET
@@ -10,13 +11,12 @@ from typing import Union, Dict
 
 def parse_xml(xml_file: bytes) -> Union[ET.Element, None]:
     """
-    Parse an XML file and return its root element.
-
     :xml_file: The XML file to be parsed, as a bytes object.
 
 
     Returns:
-        ET.Element: The root element of the parsed XML file. Returns None if the XML file could not be parsed.
+        ET.Element: The root element of the parsed XML file.
+            Returns None if the XML file could not be parsed.
     """
     try:
         tree = ET.parse(xml_file)
@@ -34,9 +34,7 @@ def xml_to_dict(node: ET.Element) -> Dict:
     :root: The root element of the XML tree.
 
     Returns:
-        dict: A Python dictionary representing the XML element. Leaf nodes are represented as key-value pairs with the
-        node tag as the key and the node's text value as the value. Non-leaf nodes are represented as key-value pairs
-        with the node name as the key and an array of the node's children as the value.
+        dict: A Python dictionary representing the XML element.
     """
     data = {}
     if len(node) == 0:

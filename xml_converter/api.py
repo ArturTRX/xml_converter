@@ -9,8 +9,6 @@ from xml_converter.utils.xml_utils import xml_to_dict, parse_xml
 
 
 class ConverterViewSet(ViewSet):
-    # Note this is not a restful API
-    # We still use DRF to assess how well you know the framework
     parser_classes = [MultiPartParser]
     renderer_classes = [JSONRenderer]
 
@@ -23,8 +21,6 @@ class ConverterViewSet(ViewSet):
         if root is None:
             # XML file could not be parsed
             return Response({"error": "Invalid XML file"}, status=400)
-
-        # Convert the Python dictionary to a JSON object
 
         json_data = xml_to_dict(root)
 
